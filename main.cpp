@@ -21,10 +21,8 @@ const int BTN_HEIGHT = 50;
 const int FRAME_RATE = 60;
 const int FRAME_TIME = 1000 / FRAME_RATE;
 
-// const int GOAL_LIMIT_LEFT = SCREEN_WIDTH*0.35;
-// const int GOAL_LIMIT_RIGHT = SCREEN_WIDTH*0.65;
-const int GOAL_LIMIT_LEFT = 250;
-const int GOAL_LIMIT_RIGHT = 460;
+const int GOAL_LIMIT_LEFT = 0;
+const int GOAL_LIMIT_RIGHT = 720;
 
 // Main loop flag
 bool quit = false;
@@ -105,7 +103,7 @@ bool init()
 	else
 	{
 		// Create window
-		music = Mix_LoadMUS("./asset/sound/match_play.wav");
+		music = Mix_LoadMUS("./asset/sound/match_play1.wav");
 		if (music == NULL)
 		{
 			printf("Failed to load sound effect! SDL_mixer Error: %s\n", Mix_GetError());
@@ -534,7 +532,7 @@ void OnePlayer()
 		ballRect.x += dx;
 		ballRect.y += dy;
 
-		if (touchNum == 5)
+		if (touchNum == 4)
 		{
 			if (dy > 0)
 			{
@@ -792,16 +790,17 @@ void TwoPlayer()
 		}
 
 		//  player get a point and spawn new ball
-		if (ballRect.y >= SCREEN_HEIGHT - 40 && ballRect.x >= GOAL_LIMIT_LEFT && ballRect.x <= GOAL_LIMIT_RIGHT)
+		if (ballRect.y <= 20 && ballRect.x >= 1 && ballRect.x <= 719)
 		{
 			player2Point++;
 			dx = random_int(3, 5) * (touchNum % 2 == 0 ? 1 : (-1));
 			dy = -5;
-			cout << "Play 1: " << player1Point << "- "
+			cout << "Play 1: " << player1Point << " - "
 				 << "Play 2: " << player2Point << endl;
 			ballRect = {SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 20, 20};
 		}
-		if (ballRect.y <= 35 && ballRect.x >= GOAL_LIMIT_LEFT && ballRect.x <= GOAL_LIMIT_RIGHT)
+
+		if (ballRect.y >= 780 && ballRect.x >= 1 && ballRect.x <= 719)
 		{
 			player1Point++;
 			dx = random_int(3, 5) * (touchNum % 2 == 0 ? 1 : (-1));
@@ -811,7 +810,7 @@ void TwoPlayer()
 			ballRect = {SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 20, 20};
 		}
 
-		if (touchNum == 5)
+		if (touchNum == 4)
 		{
 			if (dx > 0)
 				dx += 3;
