@@ -306,7 +306,7 @@ void GameManager()
 							{
 								int x, y;
 								SDL_GetMouseState(&x, &y);
-								if ((x >= 257 && x <= 464) && (y >= 387 && y <= 452))
+								if ((x >= 257 && x <= 464) && (y >= 420 && y <= 480))
 								{
 									gBackground = loadTexture("Screen/start1.png");
 									isAIWin = false;
@@ -325,7 +325,7 @@ void GameManager()
 						{
 							int x, y;
 							SDL_GetMouseState(&x, &y);
-							if ((x >= 257 && x <= 464) && (y >= 387 && y <= 452))
+							if ((x >= 257 && x <= 464) && (y >= 420 && y <= 480))
 							{
 								gBackground = loadTexture("Screen/start1.png");
 								isPlayerWin = false;
@@ -341,7 +341,7 @@ void GameManager()
 						{
 							int x, y;
 							SDL_GetMouseState(&x, &y);
-							if ((x >= 257 && x <= 464) && (y >= 387 && y <= 452))
+							if ((x >= 257 && x <= 464) && (y >= 420 && y <= 480))
 							{
 								gBackground = loadTexture("Screen/start1.png");
 								isPlayer1Win = false;
@@ -355,7 +355,7 @@ void GameManager()
 						{
 							int x, y;
 							SDL_GetMouseState(&x, &y);
-							if ((x >= 257 && x <= 464) && (y >= 387 && y <= 452))
+							if ((x >= 257 && x <= 464) && (y >= 420 && y <= 480))
 							{
 								gBackground = loadTexture("Screen/start1.png");
 								isPlayer2Win = false;
