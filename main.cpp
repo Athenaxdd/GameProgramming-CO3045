@@ -427,6 +427,9 @@ void OnePlayer()
 	bool powerUpActive = false;
 	Uint32 powerUpTimer = 0;
 
+	bool reverseActive = false;
+	Uint32 reverseTimer = 0;
+
 	SDL_Rect backgroundRect = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT};
 	SDL_SetRenderDrawColor(gRenderer, 0xFF, 0x00, 0x00, 0xFF);
 
@@ -476,6 +479,12 @@ void OnePlayer()
 					powerUpActive = true;
 					powerUpTimer = SDL_GetTicks();
 					team1_player1Rect.w *= 2; // Double the height of player1's rectangle
+				}
+				if (e.key.keysym.sym == SDLK_LSHIFT)
+				{
+					reverseActive = !reverseActive;
+					dx = -dx; // Reverse the direction of the ball
+					dy = -dy;
 				}
 			}
 			if (e.type == SDL_MOUSEBUTTONDOWN)
